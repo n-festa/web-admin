@@ -36,9 +36,39 @@ export const DashboardMenu = [
 	},
 	{
 		id: uuid(),
-		title: 'UI COMPONENTS',
-		grouptitle: true
-	},	
+		title: 'Ecommerce',
+		icon: 'cart',
+		children: [
+			{ id: uuid(), link: '/', name: 'Report' },
+			{ id: uuid(), link: '/', name: 'Orders' },
+			{ id: uuid(), link: '/', name: 'Products' },
+			{ id: uuid(), link: '/', name: 'Products Categories' },
+			{ id: uuid(), link: '/', name: 'Reviews' },
+		]
+	},
+	{
+		id: uuid(),
+		title: 'Market',
+		icon: 'market',
+		children: [
+			{ id: uuid(), link: '/', name: 'Report' },
+			
+		]
+	},
+	{
+		id: uuid(),
+		title: 'Media',
+		icon: 'media',
+		link: '/'
+	},
+	{
+		id: uuid(),
+		title: 'Admins',
+		icon: 'user',
+		children: [
+			{ id: uuid(), link: '/', name: 'Users' },
+		]
+	},
 	{
 		id: uuid(),
 		title: 'Components',
