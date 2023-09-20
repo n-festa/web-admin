@@ -9,11 +9,6 @@ export const DashboardMenu = [
 	},
 	{
 		id: uuid(),
-		title: 'LAYOUTS & PAGES',
-		grouptitle: true
-	},
-	{
-		id: uuid(),
 		title: 'Pages',
 		icon: 'layers',
 		children: [
@@ -37,7 +32,7 @@ export const DashboardMenu = [
 	{
 		id: uuid(),
 		title: 'Ecommerce',
-		icon: 'cart',
+		icon: 'shopping-cart',
 		children: [
 			{ id: uuid(), link: '/', name: 'Report' },
 			{ id: uuid(), link: '/', name: 'Orders' },
@@ -49,7 +44,7 @@ export const DashboardMenu = [
 	{
 		id: uuid(),
 		title: 'Market',
-		icon: 'market',
+		icon: 'shopping-bag',
 		children: [
 			{ id: uuid(), link: '/', name: 'Report' },
 			
@@ -58,13 +53,13 @@ export const DashboardMenu = [
 	{
 		id: uuid(),
 		title: 'Media',
-		icon: 'media',
+		icon: 'image',
 		link: '/'
 	},
 	{
 		id: uuid(),
 		title: 'Admins',
-		icon: 'user',
+		icon: 'users',
 		children: [
 			{ id: uuid(), link: '/', name: 'Users' },
 		]

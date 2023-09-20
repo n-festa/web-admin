@@ -1,5 +1,5 @@
 {
-  "name": "dashui-free-nextjs-admin-template",
+  "name": "nextjs-admin-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -30,6 +30,7 @@
     "sass-loader": "^13.2.2",
     "simplebar": "^6.2.4",
     "simplebar-react": "^3.2.3",
+    "typescript": "^5.2.2",
     "uuid": "^9.0.0"
   }
 }
