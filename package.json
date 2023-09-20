@@ -11,6 +11,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.0.0",
     "apexcharts": "^3.37.3",
+    "axios": "^1.5.0",
     "bootstrap": "^5.2.3",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
@@ -30,6 +31,7 @@
     "sass-loader": "^13.2.2",
     "simplebar": "^6.2.4",
     "simplebar-react": "^3.2.3",
+    "swr": "^2.2.2",
     "typescript": "^5.2.2",
     "uuid": "^9.0.0"
   }

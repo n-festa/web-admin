@@ -61,7 +61,7 @@ export const DashboardMenu = [
 		title: 'Admins',
 		icon: 'users',
 		children: [
-			{ id: uuid(), link: '/', name: 'Users' },
+			{ id: uuid(), link: '/admins/users', name: 'Users' },
 		]
 	},
 	{
