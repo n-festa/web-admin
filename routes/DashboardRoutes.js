@@ -9,18 +9,6 @@ export const DashboardMenu = [
 	},
 	{
 		id: uuid(),
-		title: 'Pages',
-		icon: 'layers',
-		children: [
-			{ id: uuid(), link: '/pages/profile', name: 'Profile' },
-			{ id: uuid(), link: '/pages/settings', name: 'Settings'},
-			{ id: uuid(), link: '/pages/billing', name: 'Billing' },
-			{ id: uuid(), link: '/pages/pricing', name: 'Pricing'},
-			{ id: uuid(), link: '/404', name: '404 Error' }
-		]
-	},	
-	{
-		id: uuid(),
 		title: 'Authentication',
 		icon: 'lock',
 		children: [
@@ -35,10 +23,10 @@ export const DashboardMenu = [
 		icon: 'shopping-cart',
 		children: [
 			{ id: uuid(), link: '/', name: 'Report' },
-			{ id: uuid(), link: '/', name: 'Orders' },
-			{ id: uuid(), link: '/', name: 'Products' },
-			{ id: uuid(), link: '/', name: 'Products Categories' },
-			{ id: uuid(), link: '/', name: 'Reviews' },
+			{ id: uuid(), link: '/orders', name: 'Orders' },
+			{ id: uuid(), link: '/products', name: 'Products' },
+			{ id: uuid(), link: '/product-categories', name: 'Products Categories' },
+			{ id: uuid(), link: '/reviews', name: 'Reviews' },
 		]
 	},
 	{
@@ -47,7 +35,7 @@ export const DashboardMenu = [
 		icon: 'shopping-bag',
 		children: [
 			{ id: uuid(), link: '/', name: 'Report' },
-			
+			{ id: uuid(), link: '/store', name: 'Store' },
 		]
 	},
 	{
@@ -64,6 +52,23 @@ export const DashboardMenu = [
 			{ id: uuid(), link: '/admins/users', name: 'Users' },
 		]
 	},
+	{
+		id: uuid(),
+		title: 'Documentation',
+		grouptitle: true
+	},
+	{
+		id: uuid(),
+		title: 'Pages',
+		icon: 'layers',
+		children: [
+			{ id: uuid(), link: '/pages/profile', name: 'Profile' },
+			{ id: uuid(), link: '/pages/settings', name: 'Settings'},
+			{ id: uuid(), link: '/pages/billing', name: 'Billing' },
+			{ id: uuid(), link: '/pages/pricing', name: 'Pricing'},
+			{ id: uuid(), link: '/404', name: '404 Error' }
+		]
+	},	
 	{
 		id: uuid(),
 		title: 'Components',

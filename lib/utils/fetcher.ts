@@ -18,7 +18,7 @@ const updateOptions = () =>{
 	}
 };
 
-export default async funciton(url){
+export default async function (url){
 	const { data } = await axios.get(url, updateOptions());
 	return data;
 }

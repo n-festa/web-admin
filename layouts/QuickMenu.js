@@ -18,7 +18,7 @@ import 'simplebar/dist/simplebar.min.css';
 import NotificationList from 'data/Notification';
 
 // import hooks
-import useMounted from 'hooks/useMounted';
+import useMounted from '../lib/hooks/useMounted';
 
 const QuickMenu = () => {
 

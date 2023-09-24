@@ -1,4 +1,7 @@
-export const SERVER_BASE_URL = `http://api.2all.com.vn/api/v1`;
+//export const SERVER_BASE_URL = `http://api.2all.com.vn/api/v1`;
+//export const SERVER_TEST_URL = `https://api.realworld.io/api`; 
+export const SERVER_LOCAL_URL = `http://localhost:3000/api/v1`; 
+export const SERVER_BASE_URL = `http://api.2all.com.vn/api/v1`; 
 
 export const APP_NAME = `2all`;
 
