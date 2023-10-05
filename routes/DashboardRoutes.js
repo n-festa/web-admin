@@ -51,6 +51,7 @@ export const DashboardMenu = [
 		children: [
 			{ id: uuid(), link: '/products', name: 'Products' },
 			{ id: uuid(), link: '/categories', name: 'Categories' },
+			{ id: uuid(), link: '/reports', name: 'Reports' },
 		]
 	},
 	{
@@ -58,7 +59,16 @@ export const DashboardMenu = [
 		title: 'Orders',
 		icon: 'shopping-bag',
 		children: [
-			{ id: uuid(), link: '/orders', name: 'orders' },
+			{ id: uuid(), link: '/orders', name: 'Orders' },
+		]
+	},
+	{
+		id: uuid(),
+		title: 'Stores',
+		icon: 'database',
+		children: [
+			{ id: uuid(), link: '/stores', name: 'Stores' },
+			{ id: uuid(), link: '/reports', name: 'Reports' },
 		]
 	},
 	{
