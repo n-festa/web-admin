@@ -1,0 +1,71 @@
+.portlet-title{
+	min-height: 55px;
+    margin-bottom: 0;
+    padding-left: 11px;
+    background-color: #fff;
+    padding-top: 10px;
+}
+.action-item{
+	font-size: 12px;
+    line-height: 1.5;
+    padding: 5px 10px;
+}
+.widget {
+    background: #ffffff;
+    clear: both;
+    margin-bottom: 20px;
+}
+.widget-title {
+    cursor: move;
+    overflow: hidden;
+    background: #ebeae8;
+    height: 44px;
+    line-height: 34px;
+    border-bottom: 1px solid #ffffff;
+    color: #1f64a0 !important;
+}
+.meta-boxes .widget-title {
+    cursor: move;
+    overflow: hidden;
+    height: 35px;
+    border-bottom: 1px solid #eeeeee;
+    padding: 0 5px;
+    background: none;
+}
+.widget-title > h4 {
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 35px;
+    height: 35px;
+    overflow: hidden;
+    margin: 0;
+}
+.widget-title > h4 span {
+    margin-left: 10px;
+}
+.widget-body {
+    padding: 15px 15px;
+    border-radius: 0 0 3px 3px;
+    min-height: 200px;
+}
+.meta-boxes .widget-body {
+    min-height: 0;
+}
+.btn-info {
+    color: #fff!important;
+}
+.main-form {
+    background: #ffffff;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.control-label {
+    font-weight: 500;
+    margin-top: 1px;
+}
+.form-control {
+    box-shadow: none!important;
+    outline: none!important;
+    font-size: .9rem;
+}

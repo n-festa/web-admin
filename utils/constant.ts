@@ -1,6 +1,6 @@
 export const SERVER_TEST_URL = `https://json-server-mock.vercel.app/api/`;
-export const SERVER_LOCAL_URL = `https://conduit.productionready.io/api/`;
-export const SERVER_BASE_URL = `https://conduit.productionready.io/api/`;
+export const SERVER_LOCAL_URL = `http://localhost:3000/api/`;
+export const SERVER_BASE_URL = `http://api.2all.com.vn/api/`;
 
 export const APP_NAME = `conduit`;
 

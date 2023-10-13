@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 // import theme style scss file
 import 'styles/theme.scss';
+import 'styles/style.css';
 
 // import default layouts
 import DefaultDashboardLayout from 'layouts/DefaultDashboardLayout';
