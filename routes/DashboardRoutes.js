@@ -5,7 +5,7 @@ export const DashboardMenu = [
 		id: uuid(),
 		title: 'Dashboard',
 		icon: 'home',
-		link: '/'
+		link: '/dashboard'
 	},
 	{
 		id: uuid(),
@@ -14,7 +14,6 @@ export const DashboardMenu = [
 		children: [
 			{ id: uuid(), link: '/pages/profile', name: 'Profile' },
 			{ id: uuid(), link: '/pages/settings', name: 'Settings'},
-			{ id: uuid(), link: '/pages/billing', name: 'Billing' },
 			{ id: uuid(), link: '/pages/pricing', name: 'Pricing'},
 			{ id: uuid(), link: '/404', name: '404 Error' }
 		]
@@ -42,7 +41,7 @@ export const DashboardMenu = [
 		id: uuid(),
 		title: 'Members',
 		icon: 'user-plus',
-		link: '/users'
+		link: '/members'
 	},
 	{
 		id: uuid(),

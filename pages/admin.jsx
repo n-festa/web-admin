@@ -3,9 +3,10 @@ import { Col, Row, Container } from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Link from 'next/link';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
+import Table from 'react-bootstrap/Table';
 
 export async function getStaticProps() {
-  	const res = await fetch(`${SERVER_LOCAL_URL}v1/admin`);
+  	const res = await fetch(`${SERVER_BASE_URL}v1/admin`);
   	//const res = await fetch(`http://localhost:3000/api/v1/admin`);
   	const repo = await res.json();
   	return { props: { repo } };
@@ -52,6 +53,32 @@ const Admin = ({repo}) => {
 						    <TableHeaderColumn dataField='phone'> Phone</TableHeaderColumn>
 						    <TableHeaderColumn dataField='email'> Email</TableHeaderColumn>
 						</BootstrapTable>
+
+						<h2>Table 2
+						</h2>
+						<Table striped bordered hover>
+						     <thead>
+						        <tr >
+						          <th>#</th>
+						          <th>Name</th>
+						          <th>Phone</th>
+						          <th>Email</th>
+						          <th>Operations</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+							    {result && result.map((item)=>
+							    	<tr key={item.id}>
+							          <td>{item.id}</td>
+							          <td>{item.name}</td>
+							          <td>{item.phone}</td>
+							          <td>{item.email}</td>
+							          <td>Operations</td>
+							        </tr>
+
+							    ) }
+						   	</tbody>
+						</Table>
 					</div>
 				</Col>
 			</Row>		

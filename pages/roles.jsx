@@ -1,25 +1,20 @@
-// import node module libraries
 import { Col, Row, Container } from 'react-bootstrap';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Link from 'next/link';
+import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
+import Table from 'react-bootstrap/Table';
 
-const roles = [];
-
-function addRoles(quantity) {
-  const startId = roles.length;
-  for (let i = 0; i < quantity; i++) {
-    const id = startId + i;
-    roles.push({
-      id: id,
-      name: 'Admin ' + id,
-      description: 'description ' + id,
-    });
-  }
+export async function getStaticProps() {
+	const res = await fetch(`${SERVER_BASE_URL}v1/role`);
+	  	//const res = await fetch(`http://localhost:3000/api/v1/admin`);
+	 const repo = await res.json();
+	 return { props: { repo } };
 }
 
-addRoles(5);
+const Roles = ({repo}) => {
+	const data = repo.data;
+	const results = data.result;
+	console.log(results);
 
-const Roles = () => {
 	return (
 		<Container fluid className="p-6">
 			<Row>
@@ -33,11 +28,28 @@ const Roles = () => {
 								</Link>
 							</div>
 						</div>
-						<BootstrapTable data={ roles } pagination={ true }>
-						    <TableHeaderColumn dataField='id' isKey> ID</TableHeaderColumn>
-						    <TableHeaderColumn dataField='name'> Name</TableHeaderColumn>
-						     <TableHeaderColumn dataField='description'> Description</TableHeaderColumn>
-						</BootstrapTable>
+
+						<Table striped bordered hover>
+						     <thead>
+						        <tr >
+						          <th>#</th>
+						          <th>Name</th>
+						          <th>Description</th>
+						          <th>Operations</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+							    {results && results.map((item)=>
+							    	<tr key={item.id}>
+							          <td>{item.id}</td>
+							          <td>{item.name}</td>
+							          <td>{item.description}</td>
+							          <td>@Operations</td>
+							        </tr>
+
+							    ) }
+						   	</tbody>
+						</Table>
 					</div>
 				</Col>
 			</Row>		

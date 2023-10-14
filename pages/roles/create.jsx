@@ -2,30 +2,45 @@
 import { Col, Row, Container } from 'react-bootstrap';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 import React, { useState } from 'react'
+import { useRouter } from "next/router";
 
-const AdminCreate = () => {
+const RoleCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
+	const [name, setName] =useState('');
+	const [description, setDescription] =useState('');
+	const router = useRouter();
 
 	async function onSubmit(event) {
 	    event.preventDefault()
 	 	setIsLoading(true)
-    	setError(null) // Clear previous errors when a new request starts
-	    
-	    const formData = new FormData(event.target);
-	    console.log(formData);
-	 	/*
-	    const response = await fetch(`http://api.2all.com.vn/api/v1/role`, {
-	      	method: 'POST',
-	      	headers: {
-		        "Content-Type": "application/x-www-form-urlencoded",
-		      },
-	      	body: formData,
-	    })
-	 */
-	    // Handle response if necessary
-	   // const data = await response.json()
-	    // ...
+    	setError(null) 
+
+		console.log("formData");
+		try {
+			if (name!="" && description != "") {
+			 	const formData = {
+		          	name: name,
+		          	description: description
+		      	}
+		      	const add = await fetch('http://localhost:3000/api/v1/role', {
+			        method: 'POST',
+			        headers: {
+			          'Content-Type': 'application/json'
+			        },
+			        body: JSON.stringify(formData)
+			    });
+			    const content = await add.json();
+			    if(content.success>0){
+			        router.push('/roles');
+			    }
+			}
+		}catch (error) {
+	      	console.error(error)
+	    } finally {
+	      	setIsLoading(false)
+	    }
+
 	}
 
 	return (
@@ -46,11 +61,11 @@ const AdminCreate = () => {
 	                    	<div className="form-body">
 	                    		<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
-	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" />
+	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
 	        					</div>	
 	        					<div className="form-group mb-3">
 	            					<label htmlFor="description" className="control-label required" aria-required="true">Description</label>    
-	    							<textarea className="form-control" rows="4" placeholder="Short description"  name="description" cols="50" id="description"></textarea>
+	    							<textarea className="form-control" rows="4" placeholder="Short description"  name="description" cols="50" id="description" onChange={(e)=>setDescription(e.target.value)} ></textarea>
 	        					</div>
 	        				</div>
 	                	</div>
@@ -64,11 +79,7 @@ const AdminCreate = () => {
 	    					</div>
 						    <div className="widget-body">
 						        <div className="btn-set">
-						            <button className="btn btn-info" name="submit" type="submit" value="save">
-						                    <i className="fa fa-save"></i> Save &amp; Exit
-						                </button>
-						                        &nbsp;
-						            <button className="btn btn-success" name="submit" type="submit" value="apply">
+						            <button className="btn btn-success" name="submit" type="submit" >
 						                <i className="fa fa-check-circle"></i> Save
 						            </button>
 						        </div>
@@ -81,4 +92,4 @@ const AdminCreate = () => {
 	);
 };
 
-export default AdminCreate;
+export default RoleCreate;
