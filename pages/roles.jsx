@@ -41,10 +41,20 @@ const Roles = ({repo}) => {
 						    <tbody>
 							    {results && results.map((item)=>
 							    	<tr key={item.id}>
-							          <td>{item.id}</td>
-							          <td>{item.name}</td>
-							          <td>{item.description}</td>
-							          <td>@Operations</td>
+							          	<td>{item.id}</td>
+							          	<td>{item.name}</td>
+							          	<td>{item.description}</td>
+							          	<td>
+							          		<a href={`/admin/${item.id}`} className="btn btn-sm btn-icon btn-primary me-2">
+                        						<i className="fa fa-edit"></i>
+    											<span className="sr-only">Edit</span>
+											</a>
+
+											<a href="#" className="btn btn-sm btn-icon btn-danger" >
+                        						<i className="fa fa-trash"></i>
+											    <span className="sr-only">Delete</span>
+											</a>
+							          	</td>
 							        </tr>
 
 							    ) }

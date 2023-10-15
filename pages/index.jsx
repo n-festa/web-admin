@@ -13,18 +13,9 @@ const Index = () => {
     async function onSubmit(event) {
         event.preventDefault();
         router.push("/dashboard");
-        /* 
-        const formData = new FormData(event.target)
-        const response = await fetch('/api/submit', {
-          method: 'POST',
-          body: formData,
-        })
-     
-        // Handle response if necessary
-        const data = await response.json()
-    
-        */
+
     }
+
     return (
         <Row className="align-items-center justify-content-center g-0 min-vh-100">
             <Col xxl={4} lg={6} md={8} xs={12} className="py-8 py-xl-0">

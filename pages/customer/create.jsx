@@ -1,47 +1,17 @@
-// import node module libraries
-import { Col, Row, Container } from 'react-bootstrap';
-import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
+import { Col, Row, Container } from 'react-bootstrap';
 
-const RoleCreate = () => {
+const MemberCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
-	const [description, setDescription] =useState('');
 	const router = useRouter();
 
-	async function onSubmit(event) {
-	    event.preventDefault()
+	async function onSubmit(event){
+		event.preventDefault()
 	 	setIsLoading(true)
     	setError(null) 
-
-		try {
-			if (name!="" && description != "") {
-			 	const formData = {
-		          	name: name,
-		          	description: description
-		      	}
-		      	const add = await fetch('http://localhost:3000/api/v1/role', {
-			        method: 'POST',
-			        headers: {
-			          'Content-Type': 'application/json'
-			        },
-			        body: JSON.stringify(formData)
-			    });
-
-			    const content = await add.json();
-			    console.log(content);
-			    if(content.type ==="success"){
-			        router.push('/roles');
-			    }
-			}
-		}catch (error) {
-	      	console.error(error)
-	    } finally {
-	      	setIsLoading(false)
-	    }
-
 	}
 
 	return (
@@ -50,7 +20,7 @@ const RoleCreate = () => {
 				<Col lg={12} md={12} sm={12}>
 					<div className="border-bottom pb-4 mb-4 d-md-flex justify-content-between align-items-center">
 						<div className="mb-3 mb-md-0">
-							<h1 className="mb-0 h2 fw-bold">Roles</h1>
+							<h1 className="mb-0 h2 fw-bold">Member</h1>
 						</div>
 					</div>
 				</Col>
@@ -64,10 +34,7 @@ const RoleCreate = () => {
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
 	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
 	        					</div>	
-	        					<div className="form-group mb-3">
-	            					<label htmlFor="description" className="control-label required" aria-required="true">Description</label>    
-	    							<textarea className="form-control" rows="4" placeholder="Short description"  name="description" cols="50" id="description" onChange={(e)=>setDescription(e.target.value)} ></textarea>
-	        					</div>
+	        					
 	        				</div>
 	                	</div>
 					</div>
@@ -91,6 +58,6 @@ const RoleCreate = () => {
 			</form>
 		</Container>
 	);
-};
+}
 
-export default RoleCreate;
+export default MemberCreate

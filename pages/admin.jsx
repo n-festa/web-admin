@@ -12,22 +12,6 @@ export async function getStaticProps() {
   	return { props: { repo } };
 }
 
-const products = [];
-
-function addProducts(quantity) {
-  const startId = products.length;
-  for (let i = 0; i < quantity; i++) {
-    const id = startId + i;
-    products.push({
-      id: id,
-      name: 'Item name ' + id,
-      price: 2100 + i
-    });
-  }
-}
-
-addProducts(5);
-
 const Admin = ({repo}) => {
 	const data = repo.data;
 	const result = data.result;
@@ -41,7 +25,7 @@ const Admin = ({repo}) => {
 						<h1 className="mb-0 h2 fw-bold">Admin</h1>
 						<div className="portlet-title">
 							<div className="dt-buttons btn-group flex-wrap">
-								<Link href="" className="btn btn-secondary action-item btn-primary">
+								<Link href="/admin/create" className="btn btn-secondary action-item btn-primary">
 									<i className="fa fa-plus"></i> Create
 								</Link>
 							</div>
@@ -69,13 +53,22 @@ const Admin = ({repo}) => {
 						    <tbody>
 							    {result && result.map((item)=>
 							    	<tr key={item.id}>
-							          <td>{item.id}</td>
-							          <td>{item.name}</td>
-							          <td>{item.phone}</td>
-							          <td>{item.email}</td>
-							          <td>Operations</td>
-							        </tr>
+							          	<td>{item.id}</td>
+							          	<td>{item.name}</td>
+							          	<td>{item.phone}</td>
+							          	<td>{item.email}</td>
+							          	<td>
+							          		<a href={`/admin/${item.id}`} className="btn btn-sm btn-icon btn-primary me-2">
+                        						<i className="fa fa-edit"></i>
+    											<span className="sr-only">Edit</span>
+											</a>
 
+											<a href="#" className="btn btn-sm btn-icon btn-danger" >
+                        						<i className="fa fa-trash"></i>
+											    <span className="sr-only">Delete</span>
+											</a>
+							          	</td>
+							        </tr>
 							    ) }
 						   	</tbody>
 						</Table>

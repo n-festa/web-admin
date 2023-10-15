@@ -4,7 +4,7 @@ import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
 
-const RoleCreate = () => {
+const ContactCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
@@ -93,4 +93,4 @@ const RoleCreate = () => {
 	);
 };
 
-export default RoleCreate;
+export default ContactCreate;
