@@ -11,7 +11,7 @@ export async function getStaticProps() {
   	return { props: { repo } };
 }
 
-const Settings = () => {
+const Settings = ({ repo }) => {
 	return (
 		<Container fluid className="p-6">
 			<Row>
@@ -29,9 +29,8 @@ const Settings = () => {
 						     <thead>
 						        <tr >
 						          <th>#</th>
-						          <th>Name</th>
-						          <th>Parent</th>
-						          <th>Order</th>
+						          <th>Key</th>
+						          <th>Value</th>
 						          <th>Operations</th>
 						        </tr>
 						    </thead>

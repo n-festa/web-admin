@@ -41,7 +41,6 @@ const RoleCreate = () => {
 	    } finally {
 	      	setIsLoading(false)
 	    }
-
 	}
 
 	return (

@@ -3,9 +3,18 @@ import { Col, Row, Container,Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
 
-// import sub components
+export async function getStaticProps() {
+  	const res = await fetch(`${SERVER_BASE_URL}v1/admin`);
+  	//const res = await fetch(`http://localhost:3000/api/v1/admin`);
+  	const repo = await res.json();
+  	return { props: { repo } };
+}
 
-const Orders = () => {
+const Orders = ({repo}) => {
+	const data = repo.data;
+	const result = data.result;
+	if (!data) return <div>Loading...</div>
+
 	return (
 		<Container fluid className="p-6">
 			<Row>
@@ -35,7 +44,22 @@ const Orders = () => {
 						        </tr>
 						    </thead>
 						    <tbody>
-							    
+							{result && result.map((item)=>
+							    <tr key={item.id}>
+							        <td>{item.id}</td>
+							        <td>
+							          	<a href={`/customer/${item.id}`} className="btn btn-sm btn-icon btn-primary me-2">
+                        					<i className="fa fa-edit"></i>
+    										<span className="sr-only">Edit</span>
+										</a>
+
+										<a href="#" className="btn btn-sm btn-icon btn-danger" >
+                        					<i className="fa fa-trash"></i>
+										    <span className="sr-only">Delete</span>
+										</a>
+							        </td>
+							    </tr>
+							) }   
 						   	</tbody>
 						</Table>
 					</div>

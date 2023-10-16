@@ -10,7 +10,7 @@ export async function getStaticProps() {
   	return { props: { repo } };
 }
 
-const Vouchers = () => {
+const Vouchers = ({ repo }) => {
 	return (
 		<Container fluid className="p-6">
 			<Row>

@@ -51,6 +51,7 @@ export const DashboardMenu = [
 			{ id: uuid(), link: '/products', name: 'Products' },
 			{ id: uuid(), link: '/categories', name: 'Categories' },
 			{ id: uuid(), link: '/reports', name: 'Reports' },
+			{ id: uuid(), link: '/ingredients', name: 'Ingredients' },
 		]
 	},
 	{

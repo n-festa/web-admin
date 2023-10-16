@@ -11,7 +11,10 @@ export async function getStaticProps() {
   	return { props: { repo } };
 }
 
-const Customers = () => {
+const Customers = ({repo}) => {
+	const data = repo.data;
+	const result = data.result;
+	if (!data) return <div>Loading...</div>
 	return (
 		<Container fluid className="p-6">
 			<Row>

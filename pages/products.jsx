@@ -2,7 +2,7 @@
 import { Col, Row, Container,Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
-
+import useSWR from 'swr'
 // import sub components
 
 const Products = () => {
