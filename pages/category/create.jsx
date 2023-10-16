@@ -6,6 +6,7 @@ const CategoryCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
+	const [description, setDescription] =useState('');
 	const router = useRouter();
 
 	async function onSubmit(event){
@@ -34,7 +35,10 @@ const CategoryCreate = () => {
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
 	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
 	        					</div>	
-	        					
+	        					<div className="form-group mb-3">
+	            					<label htmlFor="description" className="control-label required" aria-required="true">Description</label>    
+	    							<textarea className="form-control" rows="4" placeholder="Short description"  name="description" cols="50" id="description" onChange={(e)=>setDescription(e.target.value)} ></textarea>
+	        					</div>
 	        				</div>
 	                	</div>
 					</div>

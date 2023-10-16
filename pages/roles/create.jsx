@@ -61,7 +61,7 @@ const RoleCreate = () => {
 	                    	<div className="form-body">
 	                    		<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
-	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
+	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)} />
 	        					</div>	
 	        					<div className="form-group mb-3">
 	            					<label htmlFor="description" className="control-label required" aria-required="true">Description</label>    

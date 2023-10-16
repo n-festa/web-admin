@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
 
 export async function getStaticProps() {
-  	const res = await fetch(`${SERVER_BASE_URL}v1/admin`);
+  	const res = await fetch(`${SERVER_BASE_URL}v1/order`);
   	//const res = await fetch(`http://localhost:3000/api/v1/admin`);
   	const repo = await res.json();
   	return { props: { repo } };

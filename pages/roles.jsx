@@ -45,7 +45,7 @@ const Roles = ({repo}) => {
 							          	<td>{item.name}</td>
 							          	<td>{item.description}</td>
 							          	<td>
-							          		<a href={`/admin/${item.id}`} className="btn btn-sm btn-icon btn-primary me-2">
+							          		<a href={`/roles/${item.id}`} className="btn btn-sm btn-icon btn-primary me-2">
                         						<i className="fa fa-edit"></i>
     											<span className="sr-only">Edit</span>
 											</a>

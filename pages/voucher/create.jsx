@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from "next/router";
 import { Col, Row, Container } from 'react-bootstrap';
 
-const ProductCreate = () => {
+const VoucherCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
@@ -20,7 +20,7 @@ const ProductCreate = () => {
 				<Col lg={12} md={12} sm={12}>
 					<div className="border-bottom pb-4 mb-4 d-md-flex justify-content-between align-items-center">
 						<div className="mb-3 mb-md-0">
-							<h1 className="mb-0 h2 fw-bold">Product</h1>
+							<h1 className="mb-0 h2 fw-bold">Voucher</h1>
 						</div>
 					</div>
 				</Col>
@@ -34,7 +34,6 @@ const ProductCreate = () => {
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
 	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
 	        					</div>	
-	        					
 	        				</div>
 	                	</div>
 					</div>
@@ -60,4 +59,4 @@ const ProductCreate = () => {
 	);
 }
 
-export default ProductCreate
+export default VoucherCreate

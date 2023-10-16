@@ -6,6 +6,7 @@ const MemberCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
+	
 	const router = useRouter();
 
 	async function onSubmit(event){
@@ -34,7 +35,26 @@ const MemberCreate = () => {
 	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
 	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
 	        					</div>	
-	        					
+
+	        					<div className="form-group mb-3 position-relative">
+	            					<label htmlFor="username" className="control-label required" aria-required="true">UserName</label>    
+	    							<input className="form-control" placeholder="UserName" name="username" type="text"  id="username" />
+	        					</div>
+
+	        					<div className="form-group mb-3 position-relative">
+	            					<label htmlFor="username" className="control-label required" aria-required="true">Email</label>    
+	    							<input className="form-control" placeholder="Email" name="email" type="email"  id="email" />
+	        					</div>
+
+	        					<div className="form-group mb-3 position-relative">
+	            					<label htmlFor="username" className="control-label required" aria-required="true">Phone</label>    
+	    							<input className="form-control" placeholder="Phone" name="phone" type="text"  id="phone" />
+	        					</div>
+
+	        					<div className="form-group mb-3 position-relative">
+	            					<label htmlFor="username" className="control-label required" aria-required="true">Password</label>    
+	    							<input className="form-control" placeholder="Password" name="password" type="password"  id="password" />
+	        					</div>
 	        				</div>
 	                	</div>
 					</div>
@@ -52,6 +72,26 @@ const MemberCreate = () => {
 						            </button>
 						        </div>
 						    </div>
+						</div>
+						<div className="form-side-meta-boxes">
+							<div class="widget meta-boxes">
+							    <div class="widget-title">
+							        <h4><label for="status" class="control-label required" aria-required="true">Status</label></h4>
+							    </div>
+							    <div class="widget-body">
+							        <div class="ui-select-wrapper form-group ">
+								        <select class="form-control ui-select" v-pre="" required="required" id="status" name="status" aria-required="true">
+									        <option value="activated">Activated</option>
+									        <option value="locked">Locked</option>
+								        </select>
+									    <svg class="svg-next-icon svg-next-icon-size-16">
+									        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+									            <path d="M10 16l-4-4h8l-4 4zm0-12L6 8h8l-4-4z"></path>
+									        </svg>
+									    </svg>
+									</div>
+                            	</div>
+                        	</div>
 						</div>
 					</div>
 				</Row>
