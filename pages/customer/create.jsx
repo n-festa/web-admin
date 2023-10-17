@@ -1,18 +1,51 @@
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
 import { Col, Row, Container } from 'react-bootstrap';
+import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 
 const MemberCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [name, setName] =useState('');
-	
+	const [username, setUserName] =useState('');
+	const [email, setEmail] =useState('');
+	const [phone, setPhone] =useState('');
+	const [password, setPassword] =useState('');
 	const router = useRouter();
 
 	async function onSubmit(event){
 		event.preventDefault()
 	 	setIsLoading(true)
     	setError(null) 
+
+    	try {
+			if (name!="" && username != "" && phone !="" && email != "" && password != "" ) {
+			 	const formData = {
+		          	name: name,
+		          	username: username,
+		          	phone: phone,
+		          	email: email,
+		          	password: password
+		      	}
+		      	const add = await fetch(`${SERVER_BASE_URL}v1/customer`, {
+			        method: 'POST',
+			        headers: {
+			          'Content-Type': 'application/json'
+			        },
+			        body: JSON.stringify(formData)
+			    });
+
+			    const content = await add.json();
+			    console.log(content);
+			    if(content.type ==="success"){
+			        router.push('/customers');
+			    }
+			}
+		}catch (error) {
+	      	console.error(error)
+	    }finally {
+	      	setIsLoading(false)
+	    }
 	}
 
 	return (
@@ -38,22 +71,22 @@ const MemberCreate = () => {
 
 	        					<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="username" className="control-label required" aria-required="true">UserName</label>    
-	    							<input className="form-control" placeholder="UserName" name="username" type="text"  id="username" />
+	    							<input className="form-control" placeholder="UserName" name="username" type="text"  id="username" onChange={(e)=>setUserName(e.target.value)} />
 	        					</div>
 
 	        					<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="username" className="control-label required" aria-required="true">Email</label>    
-	    							<input className="form-control" placeholder="Email" name="email" type="email"  id="email" />
+	    							<input className="form-control" placeholder="Email" name="email" type="email"  id="email" onChange={(e)=>setEmail(e.target.value)} />
 	        					</div>
 
 	        					<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="username" className="control-label required" aria-required="true">Phone</label>    
-	    							<input className="form-control" placeholder="Phone" name="phone" type="text"  id="phone" />
+	    							<input className="form-control" placeholder="Phone" name="phone" type="text"  id="phone" onChange={(e)=>setPhone(e.target.value)} />
 	        					</div>
 
 	        					<div className="form-group mb-3 position-relative">
 	            					<label htmlFor="username" className="control-label required" aria-required="true">Password</label>    
-	    							<input className="form-control" placeholder="Password" name="password" type="password"  id="password" />
+	    							<input className="form-control" placeholder="Password" name="password" type="password"  id="password" onChange={(e)=>setPassword(e.target.value)}/>
 	        					</div>
 	        				</div>
 	                	</div>

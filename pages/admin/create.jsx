@@ -2,7 +2,7 @@
 import { Col, Row, Container} from 'react-bootstrap';
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
-
+import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 const AdminCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
   	const [error, setError] = useState(null)
@@ -17,7 +17,7 @@ const AdminCreate = () => {
 	async function onSubmit(event) {
 	    event.preventDefault()
 	    setIsLoading(true)
-	    setError(null) // Clear previous errors when a new request starts
+	    setError(null) 
 	 	try {
 			if (name!="" && username != "" && phone !="" && email != "" && password != "" && password === passwordconfirm) {
 			 	const formData = {
@@ -27,7 +27,7 @@ const AdminCreate = () => {
 		          	email: email,
 		          	password: password
 		      	}
-		      	const add = await fetch('${SERVER_BASE_URL}v1/admin', {
+		      	const add = await fetch(`${SERVER_BASE_URL}v1/admin`, {
 			        method: 'POST',
 			        headers: {
 			          'Content-Type': 'application/json'

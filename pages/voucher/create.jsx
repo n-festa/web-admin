@@ -29,12 +29,44 @@ const VoucherCreate = () => {
 				<Row>
 					<div className="col-md-8 col-12">
 						<div className="main-form">
-	                    	<div className="form-body">
-	                    		<div className="form-group mb-3 position-relative">
-	            					<label htmlFor="name" className="control-label required" aria-required="true">Name</label>    
-	    							<input className="form-control" placeholder="Name" name="name" type="text"  id="name" onChange={(e)=>setName(e.target.value)}/>
-	        					</div>	
-	        				</div>
+							<div className="pd-all-20 ws-nm">
+								<label className="title-product-main text-no-bold">
+									<span>Create coupon code</span>
+								</label>
+								<a href="#" className="btn-change-link float-end">Generate coupon code</a>
+								<div className="form-group mt15 mb0">
+									<input type="text" className="next-input coupon-code-input" name="code" />
+									<p className="type-subdued mt5 mb0">Customers will enter this coupon code when they checkout. </p>
+								</div>
+							</div>
+
+							<div class="pd-all-20 border-top-color">
+								<label class="title-product-main text-no-bold block-display">Select type of discount</label>
+								<div class="ui-select-wrapper width-200-px-rsp-768 mt15">
+									<select class="ui-select" id="select-promotion" name="type">
+										<option value="coupon">Coupon code</option>
+										<option value="promotion">Promotion</option>
+									</select>
+								</div>
+								<div class="form-group mt15 mb0">
+									<label class="next-label">
+										<input type="checkbox" name="can_use_with_promotion" value="1"/>
+										<span class="pre-line">Can be used with promotion?</span>
+									</label>
+								</div>
+								<div class="form-group mb0 mt15">
+									<label>
+									<input type="checkbox" name="is_unlimited" value="1" />Unlimited coupon?
+									</label>
+								</div>
+								<div class="form-group mb0 mt15" >
+									<label class="text-title-field">Enter number</label>
+									<div class="limit-input-group ">
+										<input type="text" class="form-control pl5 p-r5 is-valid" name="quantity" autocomplete="off" disabled="" />
+									</div>
+								</div>
+							</div>
+
 	                	</div>
 					</div>
 					<div className="col-md-4 right-sidebar d-flex flex-column-reverse flex-md-column">

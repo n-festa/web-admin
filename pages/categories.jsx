@@ -2,19 +2,34 @@
 import { Col, Row, Container,Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../utils/constant";
+import { useRouter } from "next/router";
 
 export async function getStaticProps() {
   	const res = await fetch(`${SERVER_BASE_URL}v1/categories`);
-  	//const res = await fetch(`http://localhost:3000/api/v1/admin`);
+  	//const res = await fetch(`http://localhost:3000/api/v1/categories`);
   	const repo = await res.json();
   	return { props: { repo } };
 }
 
 const Categories = ({repo}) => {
+	const router = useRouter();
 	const data = repo.data;
 	const result = data.result;
 	if (!data) return <div>Loading...</div>
+	
 
+	async function deleteCate(id) {
+		const res = await fetch(`${SERVER_BASE_URL}v1/categories/${id}`, {
+		    method: 'DELETE',
+		    headers: {
+		        'Content-Type': 'application/json'
+		    },
+		});
+		const content = await res.json();
+		if(content.type ==="success"){
+			router.push('/categories');
+		}
+	}
 
 	return (
 		<Container fluid className="p-6">
@@ -53,7 +68,7 @@ const Categories = ({repo}) => {
     										<span className="sr-only">Edit</span>
 										</a>
 
-										<a href="#" className="btn btn-sm btn-icon btn-danger" >
+										<a href="#" onClick={()=> deleteCate(item.id)} className="btn btn-sm btn-icon btn-danger" >
                         					<i className="fa fa-trash"></i>
 										    <span className="sr-only">Delete</span>
 										</a>

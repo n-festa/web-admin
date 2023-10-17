@@ -19,7 +19,7 @@ const Vouchers = ({ repo }) => {
 						<h1 className="mb-0 h2 fw-bold">Vouchers</h1>
 						<div className="portlet-title">
 							<div className="dt-buttons btn-group flex-wrap">
-								<Link href="/" className="btn btn-secondary action-item btn-primary">
+								<Link href="/voucher/create" className="btn btn-secondary action-item btn-primary">
 									<i className="fa fa-plus"></i> Create
 								</Link>
 							</div>

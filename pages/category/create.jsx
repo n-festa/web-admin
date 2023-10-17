@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
 import { Col, Row, Container } from 'react-bootstrap';
+import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
 
 const CategoryCreate = () => {
 	const [isLoading, setIsLoading] = useState(false)
@@ -12,7 +13,33 @@ const CategoryCreate = () => {
 	async function onSubmit(event){
 		event.preventDefault()
 	 	setIsLoading(true)
-    	setError(null) 
+    	setError(null) ;
+
+		try {
+			if (name!="" && description !== "" ) {
+			 	const formData = {
+		          	name: name,
+		          	description: description,
+		      	}
+		      	const add = await fetch(`${SERVER_BASE_URL}v1/categories`, {
+			        method: 'POST',
+			        headers: {
+			          'Content-Type': 'application/json'
+			        },
+			        body: JSON.stringify(formData)
+			    });
+
+			    const content = await add.json();
+			    console.log(content);
+			    if(content.type ==="success"){
+			        router.push('/categories');
+			    }
+			}
+		}catch (error) {
+	      	console.error(error)
+	    }finally {
+	      	setIsLoading(false)
+	    }
 	}
 
 	return (

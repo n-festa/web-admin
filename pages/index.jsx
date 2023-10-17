@@ -1,18 +1,47 @@
 // import node module libraries
 import { Row, Col, Card, Form, Button, Image } from "react-bootstrap";
 import Link from "next/link";
-
-// import authlayout to override default layout
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import AuthLayout from "layouts/AuthLayout";
 
 const Index = () => {
+    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
-  //  const [route, setRoute] = useState()
-   
+    const [email, setEmail] =useState('');
+    const [password, setPassword] =useState('');
+
     async function onSubmit(event) {
         event.preventDefault();
-        router.push("/dashboard");
+        try {
+			if (   email != "" && password != "" ) {
+			 	const formData = {
+		          	email: email,
+		          	password: password
+		      	}
+                console.log(formData);
+                /*
+		      	const add = await fetch(`${SERVER_BASE_URL}v1/admin`, {
+			        method: 'POST',
+			        headers: {
+			          'Content-Type': 'application/json'
+			        },
+			        body: JSON.stringify(formData)
+			    });
+
+			    const content = await add.json();
+			    console.log(content);
+			    if(content.type ==="success"){
+			        router.push("/dashboard");
+			    }*/
+			}
+		}catch (error) {
+	      	console.error(error)
+	    }finally {
+	      //	setIsLoading(false)
+	    }
+
+        
 
     }
 
@@ -29,13 +58,13 @@ const Index = () => {
                         </div>
                         <Form onSubmit={onSubmit}>
                             <Form.Group className="mb-3" controlId="username">
-                                <Form.Label>Username or email</Form.Label>
-                                <Form.Control  type="email" placeholder="Enter address here" required=""  />
+                                <Form.Label> Email</Form.Label>
+                                <Form.Control  type="email" placeholder="Enter email here" onChange={(e)=>setEmail(e.target.value)}  />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="password">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password"  name="password" placeholder="**************" required="" />
+                                <Form.Control type="password"  name="password" placeholder="**************" onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
 
                             <div className="d-lg-flex justify-content-between align-items-center mb-4">
@@ -51,11 +80,6 @@ const Index = () => {
                                 </Button>
                             </div>
                             <div className="d-md-flex justify-content-between mt-4">
-                                <div className="mb-2 mb-md-0">
-                                    <Link href="/authentication/sign-up" className="fs-5">
-                                        Create An Account{" "}
-                                    </Link>
-                                </div>
                                 <div>
                                     <Link  href="/authentication/forget-password"  className="text-inherit fs-5"  >
                                     Forgot your password?

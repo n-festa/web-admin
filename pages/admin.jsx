@@ -19,7 +19,7 @@ const Admin = ({repo}) => {
 	const result = data.result;
 	if (!data) return <div>Loading...</div>
 	
-	async function deletePost(id) {
+	async function deleteAdmin(id) {
 		const res = await fetch(`${SERVER_BASE_URL}v1/admin/${id}`, {
 		    method: 'DELETE',
 		    headers: {
@@ -68,7 +68,7 @@ const Admin = ({repo}) => {
     											<span className="sr-only">Edit</span>
 											</a>
 
-											<a href="#" onClick={()=> deletePost(item.id)} className="btn btn-sm btn-icon btn-danger" >
+											<a href="#" onClick={()=> deleteAdmin(item.id)} className="btn btn-sm btn-icon btn-danger" >
                         						<i className="fa fa-trash"></i>
 											    <span className="sr-only">Delete</span>
 											</a>

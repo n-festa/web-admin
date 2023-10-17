@@ -2,7 +2,6 @@
 import { Col, Row, Container , Tab, Tabs} from 'react-bootstrap';
 import { useRouter } from "next/router";
 import { SERVER_BASE_URL,SERVER_LOCAL_URL } from "../../utils/constant";
-import useSWR from "swr";
 import React, { useState,useEffect  } from 'react'
 import Image from 'next/image'
 
@@ -20,6 +19,7 @@ export const getServerSideProps = async ({ query }) => {
 
 
 const AdminDetail = ({repo}) => {
+	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(true)
   	const [error, setError] = useState(null)
   	const [id, setID] =useState('');
@@ -27,13 +27,12 @@ const AdminDetail = ({repo}) => {
  	const [phone, setPhone] =useState('');
  	const [password, setPassword] =useState('');
  	const [passwordconfirm, setPasswordConfirm] =useState('');
- 	const router = useRouter();
+ 	
 
 	const data = repo.data;
 	const result = data.result;
 	if (!data) return <div>Loading...</div>
 
-/*
 	useEffect(()=>{
 	    if(result){
 	    	setID(result.id)
@@ -41,14 +40,17 @@ const AdminDetail = ({repo}) => {
 	        setPhone(result.phone)
 	    }
 	},[result,isLoading])
- */	
 	
 	async function onSubmit(event) {
 	    event.preventDefault()
 	    setIsLoading(true)
 	    setError(null) 
 	 	try {
-	 			
+			 	const formData = {
+			 		id: id,
+		          	name: name,
+		          	phone: phone,
+		      	}
 		      	console.log(formData);
 		      /*	
 		      	const add = await fetch(`${SERVER_BASE_URL}v1/admin/${result.id}`, {
