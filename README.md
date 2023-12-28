@@ -1,56 +1,36 @@
-# [DashUI Next.js Free Admin Template](https://dashui-free-nextjs-admin-template.vercel.app/)
- Dash UI - Next.js Free admin / dashboard  template created by [Codescandy](https://codescandy.com/) and available on Github
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![dashui-free-nextjs-admin-template](https://user-images.githubusercontent.com/68774600/231716707-3da30d19-b826-4692-b03a-fed41376d250.jpg)
+## Getting Started
 
- 
-## How to use DashUI?
+First, run the development server:
 
-Clone the Dash UI repo:
-```
-git clone https://github.com/codescandy/dashui-free-nextjs-admin-template.git
-```
-```
-cd dashui-free-nextjs-admin-template
-```
-
-##  🚀 Getting Started 
-
-### Installation 👨🏻‍💻
-
-1. Install all packages
-
-```
-npm i
-```
-
-2. Run Development Server
-
-```
+```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-3. Build your project
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-```
-npm run build
-```
+## Learn More
 
-## Dash UI Next.js Free / Pro Version
+To learn more about Next.js, take a look at the following resources:
 
-| Free Version        | Dash UI Pro
-|---------------------|-------------------------------------------- |
-| 1 Dashboard      | Coming Soon...                                |
-| Profile      | -                                           |
-| Settings | -                                     |
-| Billing |
-| Pricing |
-| 404 Error |
-| Authentication |
-| [Demo](https://dashui-free-nextjs-admin-template.vercel.app/) |
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Technical Support or Questions
-If you have questions or need help integrating the product please [contact us](https://codescandy.com/contact-us/).
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

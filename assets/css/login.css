@@ -1,0 +1,295 @@
+.landing-page-option-3 {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    color: var(--primary-500);
+    font-family: var(--text-md-regular);
+    background-color: var(--color-ivory-100);
+}
+.sign-up, .otp {
+    position: relative;
+    background-color: var(--full-white);
+    width: 100%;
+    overflow: hidden;
+    padding: var(--padding-21xl) 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--display-sm-bold-size);
+    color: var(--color-yellowgreen-100);
+    font-family: var(--text-md-regular);
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+}
+.image-login-page {
+    position: relative;
+    width: 400px;
+    height: 284px;
+}
+.image-login-page-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-500);
+    width: 400px;
+    height: 284px;
+}
+.image-login-page img {
+    position: absolute;
+    top: 28px;
+    left: 44px;
+    width: 311px;
+    height: 228px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.login-content{
+        width: 426px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+}
+.login-content .title {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.login-content .title b{
+        align-self: stretch;
+    position: relative;
+    line-height: 38px;
+    color: var(--green-light-500);
+}
+.login-content .input-field-parent {
+    align-self: stretch;
+    text-align: left;
+    font-size: var(--text-md-regular-size);
+    color: var(--gray-700);
+}
+.login-content .input-field-parent .input-field{
+    width: 355px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+}
+.input-with-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-7xs);
+    display: flex;
+    justify-content: flex-start;
+}
+.phone-input{
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+}
+.input77 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--full-white);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--gray-300);
+    overflow: hidden;
+    font-size: var(--text-md-regular-size);
+    color: var(--gray-500);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.PhoneInputCountry {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    margin-right: var(--PhoneInputCountrySelect-marginRight);
+        overflow: hidden;
+            flex-direction: row;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) 0 var(--padding-5xs) var(--padding-xs);
+    gap: var(--gap-9xs);
+}
+.PhoneInputInput {
+    border: none!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex: 1 1;
+    align-items: center;
+    padding: var(--padding-5xs) var(--padding-xs) var(--padding-5xs) var(--padding-3xs);
+    gap: var(--gap-5xs);
+}
+
+.hint-text {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--text-sm-semibold-size);
+    line-height: 20px;
+    color: var(--gray-600);
+}
+.btn-login {
+    border-radius: var(--br-5xl);
+    background-color: var(--primary-500);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--primary-500);
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--padding-5xs) var(--padding-sm);
+    gap: var(--gap-5xs);
+}
+
+/* step 2 */
+.content26 {
+    width: 426px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+}
+.content26 .title {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.sub-heading{
+    align-self: stretch;
+    position: relative;
+}
+
+.verification-code-input-field-parent {
+    align-self: stretch;
+    gap: var(--gap-13xl);
+}
+.input7{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.mega-input-field-base, .mega-input-field-base1 {
+    border-radius: var(--br-5xs);
+    background-color: var(--full-white);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--gray-300);
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xs) var(--padding-5xs);
+}
+.mega-input-field-base1:focus-within{
+    border: 1px solid var(--primary-100);
+}
+.mega-input-field-base1 input::placeholder{
+    color: var(--gray-300);
+}
+.mega-input-field-base1 input:focus, .mega-input-field-base input:focus{
+    outline: none;
+    caret-color: var(--primary-100);
+}
+.mega-input-field-base1 input:focus-visible{
+    border: none;
+}
+.mega-input-field-base input {
+    color: var(--gray-950);
+}
+
+.mega-input-field-base input, .mega-input-field-base1 input{
+        align-self: stretch;
+    letter-spacing: -0.02em;
+    line-height: 60px;
+    font-size: 48px;
+    font-weight: 500;
+        flex: 1 1;
+    position: relative;
+}
+
+/* step 4 */
+
+.regis_success_text {
+    position: relative;
+    line-height: 30px;
+    display: inline-block;
+    width: 424px;
+}
+.chc-mng {
+    margin: 0;
+}
+.regis_success_wrapper{
+        width: 424px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 var(--padding-5xl);
+    box-sizing: border-box;
+    color: var(--gray-modern-950);
+}
+.bmi-parent,.data-parent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.bmi-parent {
+    width: 133px;
+    gap: var(--gap-base);
+}
+.bmi {
+    position: relative;
+    line-height: 32px;
+}
+.data {
+    width: 116px;
+    height: 116px;
+}
+.data-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: var(--green-light-100);
+    border: 2px solid var(--green-light-500);
+    box-sizing: border-box;
+    width: 116px;
+    height: 116px;
+}
+.div6 {
+    position: absolute;
+    top: 39px;
+    left: 23.5px;
+    line-height: 38px;
+    font-weight: 600;
+}
+.div5 {
+    position: absolute;
+    top: 39px;
+    left: 29px;
+    line-height: 38px;
+    font-weight: 600;
+}
+.cn-i {
+    font-size: var(--text-lg-semibold-size);
+    line-height: 28px;
+    font-weight: 500;
+    color: var(--gray-modern-950);
+}
