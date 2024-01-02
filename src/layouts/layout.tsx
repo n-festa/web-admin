@@ -1,43 +1,62 @@
+import React, {PropsWithChildren, useCallback, useEffect, useState } from "react";
+import { useResizeDetector } from 'react-resize-detector'
 import Head from "next/head";
-import Header from "@components/header"
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
-type LayoutType = {
-  	title?: string;
-  	children?: React.ReactNode;
-};
+import Sidebar  from "@layouts/sidebar/sidebar";
+import Header from "@layouts/header/header";
+import Footer from "@layouts/footer/footer";
 
 
-export default ({ children, title = "2ALL" }: LayoutType) => {
-	return (
-	    <div className="app-main">
-		    <Head>
-		        <title>{title}</title>
-		        <link rel="icon" href="/images/logo.ico" />
-		        <link
-		          rel="stylesheet"
-		          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
-		        />
-		        <link
-		          href="https://fonts.cdnfonts.com/css/svn-gilroy"
-		          rel="stylesheet"
-		        />
+export default function AdminLayout({ children } : PropsWithChildren){
 
-		        <link
-		          rel="stylesheet"
-		          href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
-		        />
-		        <link
-		          rel="stylesheet"
-		          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
-		        />
-		    </Head>
+	const [isShowSidebar, setIsShowSidebar ] = useState(false);
+	const [isShowSidebarMd, setIsShowSidebarMd ] = useState(true);
 
-	      	<main className="landing-page-option-3 d-flex flex-column">
-	      		<Header />
-	        	{children}
-	      	</main>
-	    </div>
-	);
-};
+	const toggleIsShowSidebar = () => {
+    	setIsShowSidebar(!isShowSidebar)
+  	}
+
+  	const toggleIsShowSidebarMd = () =>{
+  		const newValue = !isShowSidebarMd;
+  		localStorage.setItem('isShowSidebarMd', newValue ? 'true' : 'false')
+   	 	setIsShowSidebarMd(newValue)
+  	}
+
+  	// Clear and reset sidebar
+  	const resetIsShowSidebar = () =>{
+  		setIsShowSidebar(false);
+  	}
+
+  	const onResize = useCallback(() =>{
+  		resetIsShowSidebar();	
+  	},[]);
+
+  	// On first time load only
+  	useEffect(() => {
+    	if (localStorage.getItem('isShowSidebarMd')) {
+	      	setIsShowSidebarMd(localStorage.getItem('isShowSidebarMd') === 'true')
+	    }
+  	}, [setIsShowSidebarMd])
+
+  	return(
+
+		<div className="app-main">
+			<Head>
+			    <title>Admin</title>
+			    <link rel="icon" href="/images/logo.ico" />
+			</Head>
+
+			<Sidebar isShow={isShowSidebar} isShowMd={isShowSidebarMd }/>
+			
+		    <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+		      	<Header toggleSidebar={toggleIsShowSidebar} toggleSidebarMd={toggleIsShowSidebarMd} />
+		        <div className="body flex-grow-1 px-sm-2 mb-4">
+		        	<div className="container-lg">
+		        		{children}
+		        	</div>
+			            
+			    </div>
+			    <Footer />
+		    </div>
+		</div>
+	)
+}
