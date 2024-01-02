@@ -12,7 +12,7 @@ export type Props = {
 }
 
 const fetchPokemon = async (params: { id: string }):Promise<Props> =>{
-	console idQuery = params.id
+	const idQuery = params.id
 
 	if(!idQuery){
 		return notFound();
@@ -23,7 +23,6 @@ const fetchPokemon = async (params: { id: string }):Promise<Props> =>{
 }
 
 export default  function PokemonEdit({ params }: { params: { id: string } }) {
-	console.log(params);
 	return (
 		<AdminLayout>
 			Pokemon Edit
