@@ -26,7 +26,7 @@ export default function RowsPerPage(props: Props){
 						setPerPage(parseInt(event.target.value,10))
 					}
 
-					const newSearchParams = new URLSearchParams(searchParams)
+					const newSearchParams = new URLSearchParams(searchParams?.toString())
           			newSearchParams.set('page', '1') // Go back to first page
           			newSearchParams.set('per_page', event.target.value)
 

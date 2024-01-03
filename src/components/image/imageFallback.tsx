@@ -1,28 +1,35 @@
-import Image, { ImageProps } from "next/image";
-import { useEffect, useState } from "react";
+'use client'
 
-type Props ={
-	src: string;
-	fallbackSrc: string;
-} & ImageProps;
+import Image, { ImageProps } from 'next/image'
+import { useEffect, useState } from 'react'
 
-export default function ImageFallback( props:Props){
-	const { src , fallbackSrc, ... rest} = props;
+type Props = {
+  src: string;
+  fallbackSrc: string;
+} & ImageProps
 
-	const [imgSrc, setImgSrc] = useState(src);
+// Source: https://stackoverflow.com/questions/66949606/what-is-the-best-way-to-have-a-fallback-image-in-nextjs
+export default function ImageFallback(props: Props) {
+  const {
+    src,
+    fallbackSrc,
+    ...rest
+  } = props
 
-	useEffect(() =>{
-		setImgSrc(src)
-	}, [src]);
+  const [imgSrc, setImgSrc] = useState(src)
 
-	return (
-		<Image 
-			{...rest}
-			alt={rest.alt}
-			src={imgSrc}
-			onError={() =>{
-				setImgSrc(fallbackSrc)
-			}}
-		/>
-	)
+  useEffect(() => {
+    setImgSrc(src)
+  }, [src])
+  return (
+    <Image
+      /* eslint-disable-next-line react/jsx-props-no-spreading */
+      {...rest}
+      alt={rest.alt ?? ''}
+      src={imgSrc}
+      onError={() => {
+        setImgSrc(fallbackSrc)
+      }}
+    />
+  )
 }

@@ -1,8 +1,9 @@
+import React from 'react';
+import { Resource } from '@models/resource';
 import Summary from './Summary';
 import RowsPerPage from './RowsPerPage';
 import Paginate from './Paginate';
-import React from 'react';
-import { Resource } from '@models/resource';
+
 
 type Props = {
   meta: Resource<unknown>['meta'];

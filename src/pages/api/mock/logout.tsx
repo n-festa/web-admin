@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { serializeCookie } from '@utils/cookie'
+import { serializeCookie } from '@lib/cookie'
 
 export default function handler (req: NextApiRequest, res: NextApiResponse){
 	res.status(200)

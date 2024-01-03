@@ -89,7 +89,7 @@ export default function PokemonForm(props: Props) {
     })
 
     const res = await fakeSubmit()
-
+    console.log(res);
     setSubmitting(false)
     window.scrollTo(0, 0)
 
