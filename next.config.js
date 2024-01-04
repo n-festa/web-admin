@@ -7,7 +7,13 @@ const nextConfig = {
     	includePaths: [path.join(__dirname, 'styles')],
   	},
   	images: {
-    	domains: ['img.pokemondb.net'],
+    	remotePatterns: [
+      		{
+		        protocol: 'https',
+		        hostname: 'img.pokemondb.net',
+		        port: '',
+      		},
+    	],
   	},
   	compiler: {
     	// Enables the styled-components SWC transform

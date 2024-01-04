@@ -6,10 +6,12 @@ import { newResource, Resource } from '@models/resource'
 import { Pokemon } from '@models/pokemon'
 import useSWRAxios, { transformResponseWrapper } from '@hooks/useSWRAxios'
 import Pagination from '@components/pagination/Pagination'
-import PokemonList from '@components/Pokemon/PokemonList'
+import PokemonList from '@components/pokemon/PokemonList'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import AdminLayout from "@layouts/layout";
+import { useEffect } from 'react';
 
 export type Props = {
   props: {
@@ -22,50 +24,22 @@ export type Props = {
 }
 
 export default function List(props: Props) {
-  const {
-    props: {
-      pokemonResource,
-      page,
-      perPage,
-      sort,
-      order,
-    },
-  } = props
+        console.log(props);
 
-  const router = useRouter()
-
-  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
-
-  const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
-    url: pokemonListURL,
-    params: {
-      _page: page,
-      _limit: perPage,
-      _sort: sort,
-      _order: order,
-    },
-    transformResponse: transformResponseWrapper((d: Pokemon[], h) => {
-      const total = h ? parseInt(h['x-total-count'], 10) : 0
-      return newResource(d, total, page, perPage)
-    }),
-  }, {
-    data: pokemonResource,
-    headers: {
-    //  'x-total-count': pokemonResource.meta.total.toString(),
-    },
-  })
-  console.log(resource);
-  return (
-    <Card>
-      <Card.Header>Pokémon</Card.Header>
-      <Card.Body>
-        <div className="mb-3 text-end">
-          <Button variant="success" onClick={() => router.push('/pokemons/create')}>
-            <FontAwesomeIcon icon={faPlus} fixedWidth />
-            Add new
-          </Button>
-        </div>
-      </Card.Body>
-    </Card>
-  )
+    return (
+        <AdminLayout>
+            <Card>
+                <Card.Header>Pokémon</Card.Header>
+                <Card.Body>
+                    <div className="mb-3 text-end">
+                      <Button variant="success" onClick={() => router.push('/pokemons/create')}>
+                        <FontAwesomeIcon icon={faPlus} fixedWidth />
+                        Add new
+                      </Button>
+                    </div>
+                    
+                  </Card.Body>
+            </Card>
+        </AdminLayout>
+    )
 }
