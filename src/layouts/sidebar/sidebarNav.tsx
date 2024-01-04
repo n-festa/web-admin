@@ -134,6 +134,10 @@ export default function SidebarNav(){
 		        <SidebarNavItem href="#">Buttons Group</SidebarNavItem>
 		        <SidebarNavItem href="#">Dropdowns</SidebarNavItem>
 		    </SidebarNavGroup>
+
+		    <SidebarNavGroup toggleIcon={faLocationArrow} toggleText="Pokemon">
+		        <SidebarNavItem href="pokemons">Pokemons</SidebarNavItem>
+		    </SidebarNavGroup>
 		</ul>
 	)
 }

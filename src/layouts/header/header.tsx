@@ -15,7 +15,7 @@ const Header = (props:HeaderProps) =>{
 	const { toggleSidebar, toggleSidebarMd} = props;
 	return (
 		<header className="header sticky-top mb-4 py-2 px-sm-2 border-bottom">
-			<div className="container-fluid">
+			<div className="container-fluid header-navbar d-flex align-items-center">
 				<button  type="button" 
 					className="header-toggler d-md-none px-md-0 me-md-3 rounded-0 shadow-none btn btn-link"
 					onClick={toggleSidebar}

@@ -1,4 +1,4 @@
-import {Badge, Dropdown, Nav, NavItem,} from 'react-bootstrap'
+import {Badge,Dropdown,DropdownDivider,DropdownHeader,DropdownItem,DropdownMenu,DropdownToggle,Nav,NavItem,} from 'react-bootstrap'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBell,faCreditCard,faEnvelopeOpen,faFile,faMessage,faUser,} from '@fortawesome/free-regular-svg-icons'
@@ -10,7 +10,7 @@ import {
 import Link from 'next/link'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-
+import HeaderLogout from '@layouts/header/headerLogout'
 
 type ItemWithIconProps ={
 	icon: IconDefinition
@@ -39,11 +39,45 @@ const HeaderProfileNav = () =>{
 
 	return(
 		<div className="nav">
-			<div className="dropdown nav-item">
-				Profile
-
-			</div>
-            
+			<Dropdown as={NavItem}>
+		        <DropdownToggle variant="link" bsPrefix="hide-caret" className="py-0 px-2 rounded-0" id="dropdown-profile">
+		          	<div className="avatar position-relative">
+			            <Image
+			              fill
+			              sizes="32px"
+			              className="rounded-circle"
+			              src="/assets/img/avatars/8.jpg"
+			              alt="user@email.com"
+			            />
+		          	</div>
+		        </DropdownToggle>
+        		<DropdownMenu className="pt-0">
+        			<DropdownHeader className="bg-light fw-bold rounded-top">Account</DropdownHeader>
+        			<Link href="#" passHref legacyBehavior>
+			            <DropdownItem>
+			              	<ItemWithIcon icon={faBell}>
+				                Updates
+				                <Badge bg="info" className="ms-2">42</Badge>
+			              	</ItemWithIcon>
+			            </DropdownItem>
+			        </Link>
+			        <Link href="#" passHref legacyBehavior>
+			            <DropdownItem>
+			              <ItemWithIcon icon={faUser}>Profile</ItemWithIcon>
+			            </DropdownItem>
+			        </Link>
+			        <Link href="#" passHref legacyBehavior>
+			            <DropdownItem>
+			              <ItemWithIcon icon={faGear}>Settings</ItemWithIcon>
+			            </DropdownItem>
+			        </Link>
+			        <HeaderLogout>
+			            <DropdownItem>
+			              <ItemWithIcon icon={faPowerOff}>Logout</ItemWithIcon>
+			            </DropdownItem>
+			        </HeaderLogout>
+        		</DropdownMenu>
+      		</Dropdown>
         </div>
 	)
 }

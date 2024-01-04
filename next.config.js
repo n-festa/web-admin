@@ -9,6 +9,11 @@ const nextConfig = {
   	images: {
     	domains: ['img.pokemondb.net'],
   	},
+  	compiler: {
+    	// Enables the styled-components SWC transform
+    	styledComponents: true
+  	}
 }
 
 module.exports = nextConfig
+
