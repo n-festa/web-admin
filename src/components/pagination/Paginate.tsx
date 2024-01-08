@@ -16,7 +16,7 @@ export default function Paginate(props: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  //const params = useSearchParams();
+
   useEffect(() => {
     setPageIndex(currentPage - 1)
   }, [currentPage])
@@ -42,17 +42,16 @@ export default function Paginate(props: Props) {
         activeClassName="active"
         disabledClassName="disabled"
         onPageChange={(selectedItem) => {
-          	const page = selectedItem.selected + 1
+          const page = selectedItem.selected + 1
 
-          	if (setPage) {
-            	setPage(page)
-          	}
+          if (setPage) {
+            setPage(page)
+          }
 
-      //  	const newSearchParams = new URLSearchParams(params.toString())
-          	const newSearchParams = new URLSearchParams(searchParams?.toString());
-          	newSearchParams.set('page', page.toString())
+          const newSearchParams = new URLSearchParams(searchParams)
+          newSearchParams.set('page', page.toString())
 
-          	router.push(`${pathname}?${newSearchParams}`)
+          router.push(`${pathname}?${newSearchParams}`)
         }}
       />
     </div>

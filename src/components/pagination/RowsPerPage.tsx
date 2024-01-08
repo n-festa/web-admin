@@ -1,43 +1,18 @@
-import { Form } from 'react-bootstrap';
-import React from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import RowPerPageSelect from '@/components/Pagination/RowsPerPageSelect'
 
 type Props = {
-	perPage: number;
-	setPerPage? : (perPage: number) => void;
+  perPage: number;
+  setPerPage?: (perPage: number) => void;
 }
 
-export default function RowsPerPage(props: Props){
-	const { perPage, setPerPage } = props;
-	const router = useRouter();
-	const pathname = usePathname()
-  	const searchParams = useSearchParams()
+export default function RowsPerPage(props: Props) {
+  const { perPage, setPerPage } = props
 
-	return(
-		<div className="col=auto ms-sm-auto mb-3">
-			Row per perPage
-			{' '}
-			<Form.Select
-				defaultValue={perPage}
-				className="d-inline-block w-auto"
-				aria-label="Item per page"
-				onChange={(event) => {
-					if(setPerPage){
-						setPerPage(parseInt(event.target.value,10))
-					}
-
-					const newSearchParams = new URLSearchParams(searchParams?.toString())
-          			newSearchParams.set('page', '1') // Go back to first page
-          			newSearchParams.set('per_page', event.target.value)
-
-          			router.push(`${pathname}?${newSearchParams}`)
-					}}
-			>	
-				<option value={20}>20</option>
-				<option value={50}>50</option>
-				<option value={100}>100</option>
-				<option value={250}>250</option>
-			</Form.Select>
-		</div>
-	)
+  return (
+    <div className="col-auto ms-sm-auto mb-3">
+      Rows per page:
+      {' '}
+      <RowPerPageSelect perPage={perPage} setPerPage={setPerPage} />
+    </div>
+  )
 }

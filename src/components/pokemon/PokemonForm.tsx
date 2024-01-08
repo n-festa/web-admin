@@ -13,9 +13,9 @@ import {
   pokemonEggGroups,
   PokemonType,
   pokemonTypes,
-} from '@models/pokemon'
-import FormError from '@components/form/FormError'
-import PokemonTypeLabel from '@components/pokemon/PokemonTypeLabel'
+} from '@/models/pokemon'
+import FormError from '@/components/Form/FormError'
+import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 
 type Inputs = {
   name: string;
@@ -89,7 +89,7 @@ export default function PokemonForm(props: Props) {
     })
 
     const res = await fakeSubmit()
-    console.log(res);
+
     setSubmitting(false)
     window.scrollTo(0, 0)
 
